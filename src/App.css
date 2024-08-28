@@ -1,0 +1,101 @@
+#root {
+    width: 100%;
+    text-align: center;
+}
+
+.logo {
+    height: 6em;
+    padding: 1.5em;
+    will-change: filter;
+    transition: filter 300ms;
+}
+.logo:hover {
+    filter: drop-shadow(0 0 2em #646cffaa);
+}
+.logo.react:hover {
+    filter: drop-shadow(0 0 2em #61dafbaa);
+}
+/* Main container */
+.app-container {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+.cursor-pointer {
+    cursor: pointer;
+}
+
+/* Navbar */
+.NavBar {
+    width: 100%;
+    z-index: 1000;
+}
+
+/* Sidebar and main content container */
+.main-content {
+    display: flex;
+    flex: 1;
+    margin-top: var(--header-height); /* Adjust based on your header height */
+}
+
+/* Sidebar */
+.sidebar {
+    width: 250px; /* Width of the sidebar */
+    background-color: #f8f9fa;
+    position: fixed;
+    top: var(--header-height); /* Position below the header */
+    left: 0;
+    height: calc(
+        100vh - var(--header-height)
+    ); /* Full height minus header height */
+    transition: width 0.3s ease;
+}
+
+/* Content area */
+.content {
+    flex: 1;
+    margin-left: 250px; /* Adjust based on sidebar width */
+    padding: 20px;
+}
+
+/* Optional: Adjustments for collapsed sidebar */
+.sidebar.collapsed {
+    width: 80px;
+    transition: width 0.3s ease;
+}
+
+#body-pd {
+    margin-left: 250px; /* Adjust based on sidebar width */
+    transition: margin-left 0.3s ease; /* Smooth transition for sidebar toggle */
+}
+
+@media (max-width: 768px) {
+    .main-content {
+        flex-direction: column;
+    }
+
+    .sidebar {
+        width: 100%; /* Full width on mobile screens */
+        height: auto; /* Adjust height as needed */
+    }
+
+    .content {
+        margin-left: 0; /* Remove margin on smaller screens */
+    }
+}
+
+@keyframes logo-spin {
+    from {
+        transform: rotate(0deg);
+    }
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+@media (prefers-reduced-motion: no-preference) {
+    a:nth-of-type(2) .logo {
+        animation: logo-spin infinite 20s linear;
+    }
+}
